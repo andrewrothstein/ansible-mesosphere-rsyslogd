@@ -1,2 +1,3 @@
 ---
 # vars file for mesosphere-rsyslogd
+mesosphere_rsyslogd_repo : '{{mesosphere_rsyslogd_mirror}}/{{mesosphere_rsyslogd_ver}}-stable/rsyslog.repo'

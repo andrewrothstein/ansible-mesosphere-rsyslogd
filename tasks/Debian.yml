@@ -1,0 +1,12 @@
+---
+- name: (Debian) add the adiscon ppa
+  apt_repository: repo='ppa:adiscon/{{mesosphere_rsyslogd_ver}}-stable'
+  register: adiscon_ppa_added
+
+- name: (Debian) update cache...
+  when: adiscon_ppa_added
+  apt: update_cache=yes
+
+- name: (Debian) upgrade...
+  apt: name=rsyslog state=latest
+  

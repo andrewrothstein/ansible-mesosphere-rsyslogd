@@ -1,4 +1,12 @@
 ---
+- name: RedHat...
+  when: ansible_os_family == 'RedHat'
+  include: RedHat.yml
+
+- name: Debian...
+  when: ansible_os_family == 'Debian'
+  include: Debian.yml
+
 - name: installing rsyslog.d/mesos.conf
   template: >-
     src=mesos.conf.j2
@@ -7,5 +15,11 @@
     group=root
     mode=0644
 
+- name: link rsyslog as the default syslog
+  file:
+    path=/etc/systemd/system/syslog.service
+    src=/lib/systemd/system/rsyslog.service
+    state=link
+    
 - name: restart rsyslog
-  service: name=rsyslog state=restarted
+  service: name=rsyslog state=restarted enabled=yes

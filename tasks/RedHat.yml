@@ -1,0 +1,15 @@
+---
+- name: get rsyslog.repo
+  get_url: >-
+    url={{mesosphere_rsyslogd_repo}}
+    dest=/etc/yum.repos.d/rsyslog.repo
+    owner=root
+    group=root
+    mode=0644
+
+- name: install rsyslog...
+  yum: name={{item}} state=latest
+  with_items:
+    - rsyslog
+    - rsyslog-kafka
+  

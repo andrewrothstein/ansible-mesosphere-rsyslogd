@@ -1,3 +1,5 @@
 ---
 # defaults file for mesosphere-rsyslogd
+mesosphere_rsyslogd_mirror : 'http://rpms.adiscon.com'
+mesosphere_rsyslogd_ver : 'v8'
 mesosphere_rsyslogd_dir : '/var/log/mesos'
