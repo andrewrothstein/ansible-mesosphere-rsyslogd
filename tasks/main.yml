@@ -7,6 +7,14 @@
   when: ansible_os_family == 'Debian'
   include: Debian.yml
 
+- name: installing rsyslog.conf
+  template: >-
+    src=rsyslog.conf.j2
+    dest=/etc/rsyslog.conf
+    owner=root
+    group=root
+    mode=0644
+  
 - name: installing rsyslog.d/mesos.conf
   template: >-
     src=mesos.conf.j2
