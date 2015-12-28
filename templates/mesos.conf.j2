@@ -1,0 +1,26 @@
+if $programname == 'marathon' then {
+   action(
+      type="omfile"
+      file="{{mesosphere_rsyslogd_dir}}/marathon.log"
+   )
+}
+
+if $programname == 'chronos' then {
+   action(
+      type="omfile"
+      file="{{mesosphere_rsyslogd_dir}}/chronos.log"
+   )
+}
+
+if $programname == 'mesos-master' then {
+   action(
+      type="omfile"
+      file="{{mesosphere_rsyslogd_dir}}/mesos-master.log")
+   }
+
+if $programname == 'mesos-slave' then {
+   action(
+       type="omfile"
+       file="{{mesosphere_rsyslogd_dir}}/mesos-slave.log"
+   )
+}

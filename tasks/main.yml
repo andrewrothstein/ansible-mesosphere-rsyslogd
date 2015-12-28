@@ -1,0 +1,11 @@
+---
+- name: installing rsyslog.d/mesos.conf
+  template: >-
+    src=mesos.conf.j2
+    dest=/etc/rsyslog.d/mesos.conf
+    owner=root
+    group=root
+    mode=0644
+
+- name: restart rsyslog
+  service: name=rsyslog state=restarted
