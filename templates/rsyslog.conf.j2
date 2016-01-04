@@ -11,7 +11,11 @@
 
 module(load="imuxsock") # provides support for local system logging (e.g. via logger command)
 module(load="imklog")   # provides kernel logging support (previously done by rklogd)
-#module(load"immark")  # provides --MARK-- message capability
+module(load="immark")  # provides --MARK-- message capability
+module(load="imjournal")
+
+module(load="omkafka") # kafak
+module(load="omelasticsearch") # elasticsearch
 
 # Provides UDP syslog reception
 # for parameters see http://www.rsyslog.com/doc/imudp.html

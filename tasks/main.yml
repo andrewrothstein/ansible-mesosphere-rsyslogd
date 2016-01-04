@@ -23,6 +23,19 @@
     group=root
     mode=0644
 
+- name: install rsyslog.service...
+  register: rsyslogServiceChange
+  template: >-
+    src=rsyslog.service.j2
+    dest=/usr/lib/systemd/system/rsyslog.service
+    owner=root
+    group=root
+    mode=0644
+
+- name: systemd daemon-reload
+  when: rsyslogServiceChange.changed
+  command: systemctl daemon-reload
+    
 - name: link rsyslog as the default syslog
   file:
     path=/etc/systemd/system/syslog.service

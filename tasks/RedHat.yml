@@ -12,4 +12,5 @@
   with_items:
     - rsyslog
     - rsyslog-kafka
-  
+    - rsyslog-elasticsearch
+    
